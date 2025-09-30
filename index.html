@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radhi T V J </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the natural theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FBF9F6; /* Soft off-white */
+            color: #4A4A4A; /* Warm dark gray */
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        /* New styles for Liquid Glass Navbar */
+        #desktop-nav-links {
+            position: relative;
+            /* Applying the SVG filter for the gooey effect */
+            filter: url('#goo');
+        }
+        .nav-link {
+            transition: color 0.4s ease;
+            position: relative;
+            z-index: 1; /* Keep text above indicator */
+            padding: 10px 20px; /* Increased padding for a bolder indicator */
+            border-radius: 9999px; /* Ensure link itself is rounded for click area */
+            color: #4B5563; /* Tailwind gray-600 */
+        }
+        #nav-indicator {
+            position: absolute;
+            background-color: #ffffff; /* The indicator itself is solid white */
+            border-radius: 9999px;
+            /* Refined transition for a smoother, spring-like feel */
+            transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            z-index: 0; /* Behind the link text */
+            /* More prominent shadow for a lifting effect */
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            /* A subtle border to define the glass edge */
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .nav-link.is-active {
+             color: #000000; /* Crisper black for active link */
+             font-weight: 500;
+        }
+        .bg-primary { background-color: #FBF9F6; }
+        .bg-secondary { background-color: #FFFFFF; } /* White */
+        .bg-accent { background-color: #FFFFFF; } /* White */
+        .text-accent { color: #4A4A4A; } /* Dark Gray */
+        .border-accent { border-color: #4A4A4A; } /* Dark Gray for focus */
+        /* .ring-accent:focus { ring-color: #4A4A4A; } Dark Gray for focus */
+        .btn-primary {
+            background-color: #FFFFFF;
+            color: #4A4A4A; /* Warm dark gray */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EAE7E2; /* Muted beige border */
+        }
+        .btn-primary:hover {
+            background-color: #FBF9F6; /* Soft off-white */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Smooth transition for all elements */
+        * {
+            transition: all 0.2s ease-in-out;
+        }
+        /* Navbar blur effect */
+        .navbar-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(251, 249, 246, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-primary">
+    <!-- SVG Filter for Gooey Effect -->
+    <svg style="position:absolute; width:0; height:0;" aria-hidden="true">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- Header & Navbar -->
+    <header id="home" class="sticky top-0 z-50 navbar-blur shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Left Spacer for centering middle content on desktop -->
+            <div class="hidden md:flex justify-start" style="width: 150px;"></div>
+
+            <!-- Centered Nav Links -->
+            <div id="desktop-nav-links" class="hidden md:flex items-center space-x-2">
+                <a href="#about" class="text-gray-600 nav-link">About</a>
+                <a href="#portfolio" class="text-gray-600 nav-link">Portfolio</a>
+                <a href="#contact" class="text-gray-600 nav-link">Get in Touch</a>
+            </div>
+
+            <!-- Right Instagram Link -->
+            <div class="hidden md:flex justify-end items-center" style="width: 150px;">
+                 <a href="https://www.instagram.com/radhi_tvj" target="_blank" class="text-gray-600 hover:text-accent flex items-center transition-colors duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.823a3 3 0 110-6 3 3 0 010 6zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">Instagram</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex-1 flex justify-end">
+                <button id="mobile-menu-button">
+                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#about" class="block text-gray-600 hover:text-accent">About</a>
+            <a href="#portfolio" class="block text-gray-600 hover:text-accent">Portfolio</a>
+            <a href="#contact" class="block text-gray-600 hover:text-accent">Get in Touch</a>
+            <a href="https://www.instagram.com/radhi_tvj/" target="_blank" class="block text-gray-600 hover:text-accent">Instagram</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 lg:w-2/5 text-center md:text-left mb-12 md:mb-0">
+                <div class="mb-4">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 leading-tight">
+                        <span class="block">Hi, I am</span>
+                        <span class="block text-gray-900 font-extrabold">Radhi T V J</span>
+                    </h1>
+                </div>
+                <p class="text-xl text-gray-500 mb-8">Actor | Creator | Performer | Model</p>
+                <a href="#contact" class="btn-primary inline-block py-3 px-8 rounded-lg text-lg font-medium">Get in Touch</a>
+            </div>
+            <div class="md:w-1/2 lg:w-3/5 flex justify-center md:justify-end">
+                <div class="w-full max-w-lg lg:max-w-xl xl:max-w-2xl rounded-xl overflow-hidden shadow-2xl">
+                    <img src="assets/Untitled design.png" alt="Photo of Radhi T V J" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="bg-secondary">
+            <div class="container mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">About Me</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-justify">
+                        A passionate and dedicated individual ready to bring characters to life. As a fresher in the industry, I bring a raw energy, a willingness to learn, and a deep commitment to the art of performance. My goal is to collaborate on meaningful projects and create compelling stories.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700">
+                        <p><strong>Age:</strong> 20</p>
+                        <p><strong>Height:</strong> 5' 11"</p>
+                        <p><strong>Hair Color:</strong> Black</p>
+                        <p><strong>Eye Color:</strong> Black</p>
+                        <p class="sm:col-span-2"><strong>Location:</strong> Hyderabad, India</p>
+                        <p class="sm:col-span-2"><strong>Mobile:</strong> +91 9550546410</p>
+                    </div>
+                </div>
+                <div class="order-2 md:order-1 flex justify-center">
+                    <div class="w-full max-w-lg rounded-xl overflow-hidden shadow-2xl transform hover:scale-105">
+                        <img src="assets/about_image.png" alt="A beautiful photo of me" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="bg-primary">
+            <div class="container mx-auto px-6 py-20 md:py-28 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Portfolio</h2>
+                <p class="text-gray-500 mb-12 max-w-2xl mx-auto">A glimpse into my work. This gallery will be updated as I embark on new creative journeys.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Placeholder Images -->
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+1" alt="Portfolio item 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+2" alt="Portfolio item 2" class="w-full h-full object-cover">
+                    </div>
+                    <!-- <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+3" alt="Portfolio item 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+4" alt="Portfolio item 4" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+5" alt="Portfolio item 5" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105">
+                        <img src="https://placehold.co/600x400/EAE7E2/4A4A4A?text=Photo/Video+6" alt="Portfolio item 6" class="w-full h-full object-cover">
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Get in Touch Section -->
+        <section id="contact" class="bg-secondary">
+            <div class="container mx-auto px-6 py-20 md:py-28">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+                     <p class="text-gray-500 max-w-2xl mx-auto">Have a project in mind? I'd love to hear from you. Let's create something amazing together.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 bg-primary p-8 md:p-12 rounded-xl shadow-lg">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Details</h3>
+                        <div class="space-y-4 text-gray-600">
+                             <a href="mailto:radhitadepalli13@gmail.com" class="flex items-center space-x-3 group">
+                                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span class="group-hover:text-gray-800">radhitadepalli13@gmail.com</span>
+                            </a>
+                             <a href="https://www.instagram.com/radhi_tvj/" target="_blank" class="flex items-center space-x-3 group">
+                                <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.823a3 3 0 110-6 3 3 0 010 6zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd" /></svg>
+                                <span class="group-hover:text-gray-800">@radhi_tvj</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Contact Form -->
+                    <form action="https://formsubmit.co/radhitadepalli13@gmail.com" method="POST">
+                        <div class="space-y-4">
+                            <!-- Formsubmit.co settings -->
+                            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission from Radhi's Website!">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="thank-you.html">
+
+                            <div>
+                                <label for="name" class="sr-only">Name</label>
+                                <input type="text" name="name" id="name" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" name="email" id="email" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Email" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="sr-only">Phone (Optional)</label>
+                                <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Phone (Optional)">
+                            </div>
+                            <div>
+                                <label for="message" class="sr-only">Storyline/Message</label>
+                                <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Storyline/Message/Project Details" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-primary py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all duration-300">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Section -->
+        <section class="bg-accent border-y border-gray-200">
+            <div class="container mx-auto px-6 py-16 text-center text-gray-800">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-3">Let's Collaborate</h3>
+                <p class="text-lg max-w-3xl mx-auto text-gray-600">
+                    <!-- I am open for movies, ads, acting roles, and content creation. Feel free to contact me with ideas. -->
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="mailto:radhitadepalli13@gmail.com" class="hover:text-accent">radhitadepalli13@gmail.com</a>
+                 <a href="https://www.instagram.com/radhi_tvj/" target="_blank" class="hover:text-accent">Instagram</a>
+            </div>
+            <p class="text-sm">&copy; 2025 Radhi T V J. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // JavaScript for mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            const mobileNavLinks = mobileMenu.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Liquid Glass Navbar for Desktop ---
+            const navContainer = document.getElementById('desktop-nav-links');
+            if (navContainer) {
+                const allNavLinks = Array.from(navContainer.querySelectorAll('.nav-link'));
+                const internalLinks = allNavLinks.filter(link => link.getAttribute('href').startsWith('#'));
+
+                // Dynamically create the indicator
+                const indicator = document.createElement('div');
+                indicator.id = 'nav-indicator';
+                navContainer.prepend(indicator); // Add indicator to the DOM
+
+                let activeLink = internalLinks[0];
+
+                function moveIndicator(element) {
+                    if (!element) return;
+                    indicator.style.width = `${element.offsetWidth}px`;
+                    indicator.style.height = `${element.offsetHeight}px`;
+                    indicator.style.left = `${element.offsetLeft}px`;
+                    indicator.style.top = `${element.offsetTop}px`;
+                }
+
+                function setActive(element) {
+                    if (!element || !internalLinks.includes(element)) return;
+
+                    allNavLinks.forEach(link => link.classList.remove('is-active'));
+                    element.classList.add('is-active');
+                    activeLink = element;
+                }
+
+                // Set initial state after a short delay for accurate measurement
+                setTimeout(() => {
+                    setActive(internalLinks[0]);
+                    moveIndicator(activeLink);
+                }, 150);
+
+                // Handle hover over any nav link
+                allNavLinks.forEach(link => {
+                    link.addEventListener('mouseenter', () => moveIndicator(link));
+                });
+
+                // Handle mouse leaving the entire nav area
+                navContainer.addEventListener('mouseleave', () => moveIndicator(activeLink));
+
+                // Update active link on scroll using Intersection Observer
+                const sections = document.querySelectorAll('main section[id]');
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-40% 0px -40% 0px', // Trigger when section is in the middle 20% of the viewport
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    let intersected = false;
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            intersected = true;
+                            const id = entry.target.getAttribute('id');
+                            const newActiveLink = internalLinks.find(link => link.getAttribute('href') === `#${id}`);
+                            if (newActiveLink && newActiveLink !== activeLink) {
+                                setActive(newActiveLink);
+                                moveIndicator(activeLink);
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => observer.observe(section));
+                
+                // Recalculate indicator position on window resize
+                window.addEventListener('resize', () => {
+                    moveIndicator(activeLink);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
