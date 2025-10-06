@@ -315,10 +315,10 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Contact Form -->
+                    <!-- Contact Form - EmailJS Implementation -->
+                    <!-- OLD FORMSUBMIT CODE - COMMENTED OUT
                     <form action="https://formsubmit.co/radhitadepalli13@gmail.com" method="POST" enctype="multipart/form-data">
                         <div class="space-y-4">
-                            <!-- Formsubmit.co settings -->
                             <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission from Radhi's Website!">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
@@ -342,6 +342,37 @@
                             </div>
                             <button type="submit" class="w-full btn-primary py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all duration-300">Send Message</button>
                         </div>
+                    </form>
+                    -->
+
+                    <!-- NEW EMAILJS CONTACT FORM -->
+                    <form id="contact-form" class="space-y-4">
+                        <div id="form-status" class="hidden p-4 rounded-lg text-center font-medium"></div>
+                        
+                        <div>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" name="name" id="name" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" name="email" id="email" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="sr-only">Mobile Number</label>
+                            <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Your Mobile Number" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="sr-only">Storyline/Message</label>
+                            <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 bg-secondary rounded-lg border-2 border-transparent focus:outline-none focus:border-accent ring-accent" placeholder="Storyline/Message/Project Details" required></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submit-btn" class="w-full btn-primary py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all duration-300">
+                            <span id="btn-text">Send Message</span>
+                            <span id="btn-loading" class="hidden">Sending...</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -461,6 +492,68 @@
                     moveIndicator(activeLink);
                 });
             }
+        });
+    </script>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script type="text/javascript">
+        // Initialize EmailJS with your public key
+        // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+        emailjs.init('lLzyAbsyLNHlmQysN');
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoading = document.getElementById('btn-loading');
+            const formStatus = document.getElementById('form-status');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+            formStatus.classList.add('hidden');
+            
+            // Get form data
+            const formData = {
+                from_name: form.name.value,
+                from_email: form.email.value,
+                phone: form.phone.value,
+                message: form.message.value,
+                to_email: 'radhitadepalli13@gmail.com' // Recipient email
+            };
+            
+            // Send email using EmailJS
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+            emailjs.send('service_4hkygyj', 'template_xejt71d', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    formStatus.innerHTML = '<div class="text-green-600 bg-green-50 p-3 rounded-lg">✅ Message sent successfully! I\'ll get back to you soon.</div>';
+                    formStatus.classList.remove('hidden');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    formStatus.innerHTML = '<div class="text-red-600 bg-red-50 p-3 rounded-lg">❌ Failed to send message. Please try again or contact me directly at radhitadepalli13@gmail.com</div>';
+                    formStatus.classList.remove('hidden');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                });
         });
     </script>
 </body>
